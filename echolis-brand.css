@@ -1,0 +1,47 @@
+/* Echolis chrome skin: matches Echolis — Portfolio 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@400;500&display=swap');
+:root,:root[data-theme]{--bg:#05060b;--ink:#e9ecfa;--dim:#8d93b0;--glass:rgba(255,255,255,.04);--edge:rgba(200,210,255,.14);--display:'Cormorant Garamond',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif;--chrome:linear-gradient(180deg,#fff 8%,#b9c6ff 48%,#6f86f0 100%);color-scheme:dark}
+body{background:var(--bg);font-weight:400}
+.bg{filter:grayscale(1) brightness(.22) contrast(1.2) hue-rotate(200deg)}
+.bg2{background:radial-gradient(60vw 50vh at 85% -5%,rgba(224,34,79,.28),transparent 70%),radial-gradient(55vw 55vh at 0% 100%,rgba(44,75,214,.32),transparent 70%),radial-gradient(rgba(190,200,255,.25) 1px,transparent 1.4px) 0 0/22px 22px}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.01em;line-height:1.05}
+.hero h1{font-family:'Cinzel Decorative',Georgia,serif;font-weight:900;letter-spacing:.01em;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(2px 0 0 rgba(224,34,79,.85)) drop-shadow(-1px 0 0 rgba(44,75,214,.7)) drop-shadow(0 0 28px rgba(130,150,255,.4))}
+.hero h1 .glitch{color:transparent;-webkit-text-fill-color:transparent}
+.hero p,.eyebrow{color:var(--dim)}
+.eyebrow{letter-spacing:.4em;font-size:11px}
+.nav{background:rgba(5,6,11,.55);border-bottom:1px solid var(--edge);backdrop-filter:blur(14px)}
+.nav .lg{display:flex;align-items:center;gap:10px;font:700 14px 'Cinzel Decorative',serif;letter-spacing:.18em}
+.nav .lg img,.pd button img{height:26px;width:auto}
+.nav a:hover{color:#fff}.nav a.on{color:#b9c6ff}
+.glass{background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(14px)}
+.btn{border-radius:99px;transition:.25s}.btn:hover{background:rgba(185,198,255,.16);border-color:#b9c6ff}
+a:focus-visible,button:focus-visible{outline:2px solid #b9c6ff;outline-offset:4px}
+::selection{background:#6f86f0;color:#05060b}
+/* loader */
+html.ld{overflow:hidden}
+#ecl{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:#05060b;transition:opacity .7s,visibility .7s}
+#ecl::before{content:"";position:absolute;inset:0;background:radial-gradient(60vw 50vh at 85% -5%,rgba(224,34,79,.3),transparent 70%),radial-gradient(55vw 55vh at 0% 100%,rgba(44,75,214,.34),transparent 70%),radial-gradient(rgba(190,200,255,.25) 1px,transparent 1.4px) 0 0/22px 22px}
+#ecl.out{opacity:0;visibility:hidden}
+.ec-stage{position:relative;width:min(86vw,520px);height:300px;display:grid;place-items:center}
+.ec-logo{position:relative;width:150px;transition:transform .9s cubic-bezier(.6,0,.2,1),opacity .6s,filter .9s}
+.ec-logo svg.mk{width:100%;display:block;filter:drop-shadow(0 0 22px rgba(130,150,255,.5))}
+.ec-cat{position:absolute;left:50%;top:-58px;width:176px;margin-left:-88px;transform-origin:50% 90%;animation:ec-in .9s cubic-bezier(.2,.9,.3,1.2) both;transition:transform .6s cubic-bezier(.5,-.4,.6,1),opacity .5s}
+.ec-cat .body{transform-origin:50% 100%;animation:ec-breathe 2.6s ease-in-out infinite}
+.ec-cat .tail{transform-origin:18px 52px;animation:ec-tail 2.2s ease-in-out infinite}
+.ec-cat .blink{transform-origin:center;transform-box:fill-box;animation:ec-blink 4s infinite}
+@keyframes ec-in{from{transform:translateY(-90px) rotate(-8deg);opacity:0}}
+@keyframes ec-breathe{50%{transform:scaleY(1.05)}}
+@keyframes ec-tail{50%{transform:rotate(14deg)}}
+@keyframes ec-blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.ec-bar{position:absolute;bottom:18px;left:50%;width:150px;height:2px;margin-left:-75px;background:rgba(200,210,255,.16);overflow:hidden;border-radius:2px;transition:opacity .4s}
+.ec-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#e0224f,#b9c6ff,#2c4bd6);transform:translateX(-100%);animation:ec-fill 1.9s .3s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes ec-fill{to{transform:none}}
+.ec-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 clamp(34px,9vw,64px)/1 'Cinzel Decorative',Georgia,serif;pointer-events:none;
+  background:linear-gradient(180deg,#fff 8%,#b9c6ff 48%,#6f86f0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ec-word span{display:inline-block;opacity:0;transform:translateX(calc((3 - var(--i)) * .8em)) scale(.2);filter:blur(8px);-webkit-text-fill-color:transparent}
+#ecl.go .ec-logo{transform:scale(.12) rotate(180deg);opacity:0;filter:blur(6px)}
+#ecl.go .ec-cat{transform:translate(120px,-110px) rotate(24deg);opacity:0}
+#ecl.go .ec-bar{opacity:0}
+#ecl.go .ec-word span{animation:ec-letter .9s calc(.45s + var(--i) * .07s) cubic-bezier(.2,.9,.2,1) forwards}
+@keyframes ec-letter{to{opacity:1;transform:none;filter:drop-shadow(2px 0 0 rgba(224,34,79,.8)) drop-shadow(-1px 0 0 rgba(44,75,214,.7))}}
+@media(prefers-reduced-motion:reduce){#ecl{display:none}.ec-cat,.ec-cat *{animation:none!important}}
